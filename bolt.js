@@ -61,4 +61,9 @@ app.message(/^doneList/i, ({context, say}) => {
   }
 });
 
-app.start();
+const port = process.env.PORT || 3000;
+
+(async () => {
+  await app.start(port);
+  console.log(`⚡️ Slack bot is running on port ${port}`);
+})();

@@ -52,8 +52,8 @@ app.message(/^list/i, ({context, say}) => {
 });
 
 // doneListの繋ぎこみ
-app.message(/^doneList/i, ({context, say}) => {
-  let sendMessage = todo.doneList().join('\n')
+app.message(/^donelist/i, ({context, say}) => {
+  let sendMessage = todo.donelist().join('\n')
   if (sendMessage === "") {
     say("（完了した TODO はありません）");
   } else {
@@ -61,9 +61,7 @@ app.message(/^doneList/i, ({context, say}) => {
   }
 });
 
-const port = process.env.PORT || 3000;
-
 (async () => {
-  await app.start(port);
-  console.log(`⚡️ Slack bot is running on port ${port}`);
+  await app.start();
+  console.log(`⚡️ Slack bot is running`);
 })();
